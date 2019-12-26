@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -73,7 +73,24 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card shadow">
+                            <div class="card-header ">@yield('title')</div>
+
+                            <div class="card-body"> 
+                               
+                                @include('layouts.errors')
+                                @include('layouts.messages')
+
+                                @yield('content')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </main>
     </div>
 </body>
